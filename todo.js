@@ -12,7 +12,17 @@ function readTodo () {
   else{
       return JSON.parse(data);
   }
-} 
+}
+
+function printTodo() {
+    const todos = readTodo();
+    const formattedTodos = todos.map((todo, index) => ({
+        Todo: index + 1,
+        Status: todo.completed ? '✅' : '❌',
+        Task: todo.todo
+    }));
+    console.table(formattedTodos);
+}
 
 function writeTodo (todos) {
   const data = JSON.stringify(todos, null, 2)
@@ -32,8 +42,7 @@ program
   .command('ls')
   .description('list all the tasks in a todo.json')
   .action(() => {
-    const todos = readTodo()
-    console.log(todos)
+    printTodo();
   })
 
 program
@@ -60,11 +69,11 @@ program
     if (index >= 0 && index < todos.length) {
       const removed = todos.splice(index, 1)
       writeTodo(todos)
-      console.log(`Removed task: "${removed[0].task}"`)
+      console.log(`Removed task: "${removed[0].todo}"`)
     } else {
       console.log('Task number is invalid.')
     }
-  })
+})
 
 program
   .command('update <taskNumber> <newTask>')

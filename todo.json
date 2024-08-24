@@ -1,22 +1,14 @@
 [
   {
-    "todo": "hey i am utsav",
-    "completed": true
-  },
-  {
     "todo": "first assignment i learn the things => todo piece of cake",
     "completed": true
   },
   {
-    "todo": "hey i am utsav",
-    "completed": false
-  },
-  {
     "todo": "maja aa gaya aaj to",
-    "completed": false
+    "completed": true
   },
   {
-    "todo": "1hr+ to debug",
-    "completed": false
+    "todo": "explain todo",
+    "completed": true
   }
 ]
