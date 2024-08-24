@@ -14,7 +14,6 @@ function readTodo () {
   }
 } 
 
-
 function writeTodo (todos) {
   const data = JSON.stringify(todos, null, 2)
   fs.writeFileSync('./todo.json', data)
@@ -64,6 +63,21 @@ program
       console.log(`Removed task: "${removed[0].task}"`)
     } else {
       console.log('Task number is invalid.')
+    }
+  })
+
+program
+  .command('update <taskNumber> <newTask>')
+  .description('update a particular task')
+  .action((taskNumber , newtask) =>{
+    const todo = readTodo();
+    const index = taskNumber - 1;
+    if (index >= 0 && index < todo.length) {
+      todo[index].todo = newtask;
+      writeTodo(todo);
+      console.log(`Updated task: "${todo[index].todo}"`)
+    } else {
+      console.log('No such task found.')
     }
   })
 
