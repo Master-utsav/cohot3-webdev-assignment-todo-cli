@@ -46,7 +46,7 @@ program
     if (index >= 0 && index < todos.length) {
       todos[index].completed = true
       writeTodo(todos)
-      console.log(`Task "${todos[index].task}" marked as completed.`)
+      console.log(`Task "${todos[index].todo}" marked as completed.`)
     } else {
       console.log('Task number is invalid.')
     }
